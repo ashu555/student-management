@@ -18,8 +18,6 @@ Route::get('/noPermission',function(){
 	return view('permission.noPermission');
 });
 
-
-
 Route::group(['middleware'=>['authen','roles']],function(){
 	Route::get('/logout', ['as'=>'logout','uses'=>'LoginController@getLogout']);
 	Route::get('/dashboard',['as'=>'dashboard','uses'=>'DashboardController@dashboard']);
