@@ -25,7 +25,5 @@ Route::group(['middleware'=>['authen','roles']],function(){
 
 Route::group(['middleware'=>['authen','roles'],'roles'=>['admin']],function(){
 	//for Admin
-	Route::get('/createUser',function(){
-		echo 'This function is for admin test';
-	});
+	Route::get('/manage/course',['as'=>'manageCourse','uses'=>'CourseController@getManageCourse']);
 });
