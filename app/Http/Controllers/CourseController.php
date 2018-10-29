@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Academic;
+use App\Program;
 
 class CourseController extends Controller
 {
@@ -14,5 +16,21 @@ class CourseController extends Controller
     public function getManageCourse()
     {
     	return view('courses.manageCourse');
+    }
+
+    public function postInsertAcademic(Request $request)
+    {
+    	if($request->ajax()) {
+           return response(Academic::create($request->all()));
+    	}
+    	
+
+    }
+
+    public function postInsertProgram(Request $request)
+    {
+        if ($request->ajax()) {
+            return response (Program::create($request->all()));
+        }
     }
 }

@@ -15,7 +15,7 @@ class CreateAcademicsTable extends Migration
     {
         Schema::create('academics', function (Blueprint $table) {
             $table->increments('academic_id');
-            $table->string('academic',50);
+            $table->string('academic',50)->nullable();
             $table->string('description',200)->nullable();
             $table->timestamps();
         });
